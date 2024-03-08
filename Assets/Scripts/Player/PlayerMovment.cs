@@ -8,7 +8,6 @@ public class PlayerMovment: MonoBehaviour
     private CharacterController playerController;
     private PlayerAnim playerAnim;
     public float movementSpeed = 6f;
-    public float gravity = 9.8f;
     private float verticalMovmentValue;
     private float horizontalMovmentValue; 
     void Start()
@@ -28,14 +27,6 @@ public class PlayerMovment: MonoBehaviour
         this.verticalMovmentValue = Input.GetAxis("Vertical");
         MoveCharacter();
     }
-
-    private void ApplyGravity()
-        {
-            if (!playerController.isGrounded)
-            {
-                verticalMovmentValue -= gravity * Time.deltaTime;
-            }
-        }
     private void MoveCharacter(){
         Vector3 cameraForward = this.playerCamera.transform.forward;
         Vector3 cameraRight = this.playerCamera.transform.right;
